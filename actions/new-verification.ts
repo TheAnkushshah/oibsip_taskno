@@ -8,7 +8,7 @@ export const newVerification = async (token: string) => {
   const existingToken = await getVerificationTokenByToken(token);
 
   if (!existingToken) {
-    return { success: "Congratulations Email Verified 🎉" };
+    return { error: "Something went wrong!" };
   }
 
   const hasExpired = new Date(existingToken.expires) < new Date();
@@ -35,5 +35,5 @@ export const newVerification = async (token: string) => {
     where: { id: existingToken.id }
   });
 
-  return { success: "Email verified!" };
+  return { success: "Congratulations Email Verified 🎉" };
 };
