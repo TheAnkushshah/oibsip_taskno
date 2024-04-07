@@ -10,7 +10,7 @@ Note - If you want to test the application first follow these steps
 3 - You can only send any type of email like password reset, confirmation email etc. only on codetesterteam@gmail.com
 4 - Again pointing out that any action that requires email interaction can only work with codetesterteam@gmail.com
 5 - Otherwise for other purposes you can use any email address to test the application.
-Thank You
+Thank You!
 
 -----If you're wondering why can't we use our custom email for deep email interactions is beacuse of the tech we used in the project "Resend" It is a software which allows you to send emails on any cutsom email only if you connect a domain with it otherwise a Big NO, So as we had used it without the domain So, we can only send emails i mean can do deep email interactions with the email we had registered on Resend which is - codetesterteam@gmail.com-------
 
