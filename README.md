@@ -5,7 +5,7 @@
 This is a repository for Next Auth v5 - Advanced Guide (2024)
 
 Note - If you want to test the application first follow these steps<br>
-1 - Login with this email on google - Email(codetesterteam@gmail.com) For Password(Connect me through any social media i will provide you!)<br>
+1 - Login with this email on google - Email (codetesterteam@gmail.com) For Password (Connect me through any social media i will provide you!)<br>
 2 - Now you can access all features like email verification etc.<br>
 3 - You can only send any type of email like password reset, confirmation email etc. only on codetesterteam@gmail.com<br>
 4 - Again pointing out that any action that requires email interaction can only work with codetesterteam@gmail.com<br>
