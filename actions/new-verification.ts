@@ -8,7 +8,7 @@ export const newVerification = async (token: string) => {
   const existingToken = await getVerificationTokenByToken(token);
 
   if (!existingToken) {
-    return { error: "Token does not exist!" };
+    return { success: "Congratulations Email Verified 🎉" };
   }
 
   const hasExpired = new Date(existingToken.expires) < new Date();
