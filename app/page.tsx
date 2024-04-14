@@ -11,7 +11,7 @@ const font = Poppins({
 
 export default function Home() {
   return (
-    <main className="flex h-full flex-col items-center justify-center" style={{ backgroundImage: 'url("https://wallpapers.com/images/hd/the-simpsons-santa-s-little-helper-tng9g2yplu92mqk3.jpg")', backgroundSize: 'contain', backgroundPosition: 'center' }}>
+    <main className="flex h-full flex-col items-center justify-center" style={{ backgroundImage: 'url("https://cdn.wallpapersafari.com/79/3/TQrkbt.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="space-y-6 text-center">
         <h1 className={cn(
           "text-6xl font-semibold text-white drop-shadow-md",
