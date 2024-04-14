@@ -4,16 +4,6 @@
 
 This is a repository for Next Auth v5 - Advanced Guide (2024)
 
-<<<<<<< HEAD
-Note - If you want to test the application first follow these steps
-1 - Login with this email on google - Email(codetesterteam@gmail.com) For Password(Connect me through any social media i will provide you!)
-2 - Now you can access all features like email verification etc.
-3 - You can only send any type of email like password reset, confirmation email etc. only on codetesterteam@gmail.com
-4 - Again pointing out that any action that requires email interaction can only work with codetesterteam@gmail.com
-5 - Otherwise for other purposes you can use any email address to test the application.
-Thank You!
-
-=======
 Note - If you want to test the application first follow these steps<br>
 1 - Login with this email on google - Email (codetesterteam@gmail.com) For Password (Connect me through any social media i will provide you!)<br>
 2 - Now you can access all features like email verification etc.<br>
@@ -22,8 +12,8 @@ Note - If you want to test the application first follow these steps<br>
 5 - Otherwise for other purposes you can use any email address to test the application<br>
 Thank You<br>
 <br>
->>>>>>> 8d3009df30c57dae0c4838fc56df11530e626ea2
------If you're wondering why can't we use our custom email for deep email interactions is beacuse of the tech we used in the project "Resend" It is a software which allows you to send emails on any cutsom email only if you connect a domain with it otherwise a Big NO, So as we had used it without the domain So, we can only send emails i mean can do deep email interactions with the email we had registered on Resend which is - codetesterteam@gmail.com-------
+
+If you're wondering why can't we use our custom email for deep email interactions is beacuse of the tech we used in the project "Resend" It is a software which allows you to send emails on any cutsom email only if you connect a domain with it otherwise a Big NO, So as we had used it without the domain So, we can only send emails i mean can do deep email interactions with the email we had registered on Resend which is - codetesterteam@gmail.com
 
 Key Features:
 -  Next-auth v5 (Auth.js)
@@ -66,7 +56,7 @@ Key Features:
 ### Cloning the repository
 
 ```shell
-git clone https://github.com/AntonioErdeljac/next-auth-v5-advanced-guide.git
+git clone https://github.com/TheAnkushshah/oibsip_taskno.git
 ```
 
 ### Install packages
