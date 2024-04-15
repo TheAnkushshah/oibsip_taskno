@@ -1,6 +1,6 @@
 # Next Auth v5 - Advanced Guide (2024)
 
-![image](https://i.ytimg.com/vi/1MTyCvS05V4/maxresdefault.jpg)
+![image](public/Preview.png)
 
 This is a repository for Next Auth v5 - Advanced Guide (2024)
 
