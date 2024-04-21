@@ -6,7 +6,7 @@ interface ProtectedLayoutProps {
 
 const ProtectedLayout = ({ children }: ProtectedLayoutProps) => {
   return ( 
-    <div className="h-full w-full flex flex-col gap-y-10 items-center justify-center" style={{ backgroundImage: 'url("https://cdn.wallpapersafari.com/79/3/TQrkbt.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div className="h-full w-full flex flex-col gap-y-10 items-center justify-center" style={{ backgroundImage: 'url("https://images.wallpapersden.com/image/download/astronaut-art-4k_a2xsaW6UmZqaraWkpJRobWllrWdma2U.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <Navbar />
       {children}
     </div>
