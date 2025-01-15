@@ -18,6 +18,8 @@ Replicates Clerk, a widely used authentication and user management tool. It enab
 
 - Next.js
 - React.js
+- HTML5
+- CSS3
 - Typescript
 - Neon - PostgreSQL
 - Next Auth
