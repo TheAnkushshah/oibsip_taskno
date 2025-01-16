@@ -19,6 +19,8 @@ Replicates Clerk, a widely used authentication and user management tool. It enab
 - Next.js
 - React.js
 - HTML5
+- Prisma
+- NPX
 - CSS3
 - Typescript
 - Neon - PostgreSQL
@@ -26,7 +28,8 @@ Replicates Clerk, a widely used authentication and user management tool. It enab
 - Resend
 - O Auth - Github & Google
 - Neon
-- shadcn
+- Node.js
+- NPM
 - Tailwind CSS
 
 ### <a name="features">Features</a>
@@ -133,7 +136,6 @@ Replicates Clerk, a widely used authentication and user management tool. It enab
 
     If you're wondering why can't we use our custom email for deep email interactions is beacuse of the tech we used in the project "Resend" It is a software which allows you to send emails on any cutsom email only if you connect a domain with it otherwise a Big NO, So as we had used it without the domain So, we can only send emails i mean can do deep email interactions with the email we had registered on Resend which is - codetesterteam@gmail.com
 
-
 3. **Database Run:**
 
     Run the following command to run the database:
@@ -141,6 +143,7 @@ Replicates Clerk, a widely used authentication and user management tool. It enab
     ```bash
     npx prisma generate
     npx prisma db push
+    npx prisma studio
     ```
 
     Open the ORM in your browser to view the database.
