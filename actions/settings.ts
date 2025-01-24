@@ -3,13 +3,13 @@
 import * as z from "zod";
 import bcrypt from "bcryptjs";
 
-import { update } from "@/auth";
 import { db } from "@/lib/db";
 import { SettingsSchema } from "@/schemas";
 import { getUserByEmail, getUserById } from "@/data/user";
 import { currentUser } from "@/lib/auth";
 import { generateVerificationToken } from "@/lib/tokens";
 import { sendVerificationEmail } from "@/lib/mail";
+import { signIn } from "next-auth/react"; // Import signIn from NextAuth
 
 export const settings = async (values: z.infer<typeof SettingsSchema>) => {
   const user = await currentUser();
@@ -63,13 +63,10 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
     },
   });
 
-  update({
-    user: {
-      name: updatedUser.name,
-      email: updatedUser.email,
-      isTwoFactorEnabled: updatedUser.isTwoFactorEnabled,
-      role: updatedUser.role,
-    },
+  // Trigger a session update by calling signIn
+  await signIn("credentials", {
+    email: updatedUser.email,
+    password: values.newPassword ?? updatedUser.password, // make sure password is set
   });
 
   return { success: "Settings Updated!" };

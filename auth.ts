@@ -1,4 +1,4 @@
-import NextAuth from "next-auth"
+import NextAuth from "next-auth";
 import { UserRole } from "@prisma/client";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 
@@ -13,7 +13,6 @@ export const {
   auth,
   signIn,
   signOut,
-  update,
 } = NextAuth({
   pages: {
     signIn: "/auth/login",
@@ -21,20 +20,21 @@ export const {
   },
   events: {
     async linkAccount({ user }) {
+      if (!user?.id) throw new Error("User ID is undefined");
       await db.user.update({
         where: { id: user.id },
-        data: { emailVerified: new Date() }
-      })
-    }
+        data: { emailVerified: new Date() },
+      });
+    },
   },
   callbacks: {
     async signIn({ user, account }) {
-      // Allow OAuth without email verification
+      if (!user?.id) return false;
+
       if (account?.provider !== "credentials") return true;
 
       const existingUser = await getUserById(user.id);
 
-      // Prevent sign in without email verification
       if (!existingUser?.emailVerified) return false;
 
       if (existingUser.isTwoFactorEnabled) {
@@ -42,9 +42,8 @@ export const {
 
         if (!twoFactorConfirmation) return false;
 
-        // Delete two factor confirmation for next sign in
         await db.twoFactorConfirmation.delete({
-          where: { id: twoFactorConfirmation.id }
+          where: { id: twoFactorConfirmation.id },
         });
       }
 
@@ -53,22 +52,17 @@ export const {
     async session({ token, session }) {
       if (token.sub && session.user) {
         session.user.id = token.sub;
-      }
+        session.user.name = token.name ?? "Unknown";
+        session.user.email = token.email ?? "Unknown";
 
-      if (token.role && session.user) {
-        session.user.role = token.role as UserRole;
-      }
+        // Ensure isOAuth is always a boolean
+        session.user.isOAuth = token.isOAuth === undefined ? false : Boolean(token.isOAuth);
 
-      if (session.user) {
-        session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean;
-      }
+        // Ensure isTwoFactorEnabled is always a boolean
+        session.user.isTwoFactorEnabled = token.isTwoFactorEnabled === undefined ? false : Boolean(token.isTwoFactorEnabled);
 
-      if (session.user) {
-        session.user.name = token.name;
-        session.user.email = token.email;
-        session.user.isOAuth = token.isOAuth as boolean;
+        session.user.role = (token.role as UserRole) ?? "user";
       }
-
       return session;
     },
     async jwt({ token }) {
@@ -78,18 +72,20 @@ export const {
 
       if (!existingUser) return token;
 
-      const existingAccount = await getAccountByUserId(
-        existingUser.id
-      );
+      const existingAccount = await getAccountByUserId(existingUser.id);
 
+      // Ensure isOAuth is always a boolean
       token.isOAuth = !!existingAccount;
-      token.name = existingUser.name;
-      token.email = existingUser.email;
-      token.role = existingUser.role;
-      token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
+
+      // Ensure isTwoFactorEnabled is always a boolean
+      token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled === undefined ? false : Boolean(existingUser.isTwoFactorEnabled);
+
+      token.name = existingUser.name ?? "Unknown";
+      token.email = existingUser.email ?? "Unknown";
+      token.role = existingUser.role ?? "user";
 
       return token;
-    }
+    },
   },
   adapter: PrismaAdapter(db),
   session: { strategy: "jwt" },
