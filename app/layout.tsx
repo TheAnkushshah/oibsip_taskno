@@ -8,8 +8,8 @@ import { Toaster } from "@/components/ui/sonner";
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Go Verify',
-  description: 'Be real, Be safe with go verify',
+  title: 'Go-Verify',
+  description: 'Be real, Be safe with go-verify',
 }
 
 export default async function RootLayout({
@@ -22,10 +22,16 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en">
-        <body className={inter.className}>
-          <Toaster />
-          {children}
-        </body>
+      <head>
+        <link rel="icon" type="image/x-icon" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="manifest.json" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
+      <body className={inter.className}>
+        <Toaster />
+        {children}
+      </body>
       </html>
     </SessionProvider>
   )

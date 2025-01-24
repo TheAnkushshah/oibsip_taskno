@@ -1,0 +1,19 @@
+{
+    "short_name": "Go-Verify",
+    "name": "Go-Verify",
+    "icons": [
+      {
+        "src": "/logo.png",
+        "type": "image/png",
+        "sizes":"422x422"
+      },
+      {
+        "src": "/apple-touch-icon.png",
+        "type": "image/png",
+        "sizes":"422x422"
+      }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#000000"
+  }

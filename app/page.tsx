@@ -30,7 +30,7 @@ export default function Home() {
           </LoginButton>
         </div>
         <p className="text-white text-lg">
-          Built with ❤️ by Haven Futures
+          Built with 💚 by Haven Futures
         </p>
       </div>
     </main>
